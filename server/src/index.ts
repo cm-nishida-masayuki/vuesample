@@ -1,10 +1,12 @@
 import Express from 'express'
 import { v4 } from "uuid";
 import bodyParser from "body-parser";
+import cors from 'cors';
 
 const app = Express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 type Board = {
   id: string,
@@ -32,6 +34,6 @@ app.post('/boards', (req, res) => {
 const port = 18889;
 const host = "localhost";
 
-app.listen(8889, 'localhost', () => {
+app.listen(port, 'localhost', () => {
   console.log(`running on ${port}`)
 });
