@@ -17,6 +17,9 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "http": [
+        "src/types/http"
       ]
     },
     "lib": [
@@ -24,7 +27,8 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    "experimentalDecorators": true
   },
   "include": [
     "src/**/*.ts",

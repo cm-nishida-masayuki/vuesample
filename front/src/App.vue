@@ -35,7 +35,7 @@
 
     <v-content>
       <Forms :form-data="formData" @submit="submit" />
-      <Board :boards="boards" />
+      <Board :boards="boardStore.boards" />
     </v-content>
   </v-app>
 </template>
@@ -44,6 +44,7 @@
 import Vue from "vue";
 import Board, { BoardItem } from "@/components/Board.vue";
 import Forms, { FormData } from "@/components/Forms.vue";
+import boardStore from "@/store/boardStore";
 
 type Data = {
   currentId: number;
@@ -78,6 +79,10 @@ export default Vue.extend({
       body: ""
     }
   }),
+
+  created() {
+    boardStore.fetchBoards();
+  },
 
   methods: {
     nextId(): string {
